@@ -1,9 +1,11 @@
 package cli
 
 import (
+	"fmt"
 	"os"
 	"strings"
 
+	"github.com/abdullah-alaadine/sql-lite/core"
 	prompt "github.com/c-bata/go-prompt"
 	"github.com/rs/zerolog/log"
 )
@@ -39,6 +41,17 @@ func getExecuter(file string) func(string) {
 			os.Exit(0)
 		default:
 			// TODO: proccess commmands here
+			if strings.HasPrefix(line, ".") {
+				log.Error().Msg(fmt.Sprintf("unrecognized command '%s'", line))
+				break
+			}
+			// TODO: prepare statement with SQL compiler
+			statement, res := compiler.PrepareStatement(line)
+			if res == compiler.SUCCESS {
+				core.ExecuteStatement(statement)
+			} else {
+				log.Error().Msg(fmt.Sprintf("unrecognized keyword at start of '%s'", line))
+			}
 		}
 	}
 }
