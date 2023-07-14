@@ -20,6 +20,9 @@ func StartPrompt(file string) {
 
 func completer(d prompt.Document) []prompt.Suggest {
 	suggestions := []prompt.Suggest{}
+	for _, s := range suggestionsMap {
+		suggestions = append(suggestions, s...)
+	}
 	return prompt.FilterHasPrefix(suggestions, d.GetWordBeforeCursor(), true)
 }
 
