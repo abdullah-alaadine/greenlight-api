@@ -5,6 +5,7 @@ go 1.20
 require github.com/rs/zerolog v1.29.1
 
 require (
+	github.com/marianogappa/sqlparser v0.0.0-20210802195049-c86231987420 // indirect
 	github.com/mattn/go-runewidth v0.0.9 // indirect
 	github.com/mattn/go-tty v0.0.3 // indirect
 	github.com/pkg/term v1.2.0-beta.2 // indirect
