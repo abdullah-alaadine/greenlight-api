@@ -1,6 +1,7 @@
 package data
 
 import (
+	"math"
 	"strings"
 
 	"github.com/abdullah-alaadine/greenlight-api/internal/validator"
@@ -51,4 +52,17 @@ type Metadata struct {
 	FirstPage    int `json:"first_page,omitempty"`
 	LastPage     int `json:"last_page,omitempty"`
 	TotalRecords int `json:"total_records,omitempty"`
+}
+
+func calculateMetadata(totalRecords, page, pageSize int) Metadata {
+	if totalRecords == 0 {
+		return Metadata{}
+	}
+	return Metadata{
+		CurrentPage:  page,
+		PageSize:     pageSize,
+		FirstPage:    1,
+		LastPage:     int(math.Ceil(float64(totalRecords) / float64(pageSize))),
+		TotalRecords: totalRecords,
+	}
 }
