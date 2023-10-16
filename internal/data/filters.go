@@ -29,3 +29,10 @@ func (f Filters) sortColumn() string {
 	}
 	panic("unsafe sort parameter: " + f.Sort)
 }
+
+func (f Filters) sortDirection() string {
+	if strings.HasPrefix(f.Sort, "-") {
+		return "DESC"
+	}
+	return "ASC"
+}
