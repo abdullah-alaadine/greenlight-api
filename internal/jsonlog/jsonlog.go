@@ -32,3 +32,10 @@ type Logger struct {
 	minLevel Level
 	mu       sync.Mutex
 }
+
+func New(out io.Writer, minLevel Level) *Logger {
+	return &Logger{
+		out:      out,
+		minLevel: minLevel,
+	}
+}
