@@ -47,6 +47,10 @@ func (l *Logger) PrintInfo(message string, properties map[string]string) {
 	l.print(LevelInfo, message, properties)
 }
 
+func (l *Logger) PrintError(err error, properties map[string]string) {
+	l.print(LevelError, err.Error(), properties)
+}
+
 func (l *Logger) print(level Level, message string, properties map[string]string) (int, error) {
 	if level < l.minLevel {
 		return 0, nil
