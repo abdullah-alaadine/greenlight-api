@@ -1,5 +1,10 @@
 package jsonlog
 
+import (
+	"io"
+	"sync"
+)
+
 type Level int8
 
 const (
@@ -20,4 +25,10 @@ func (l Level) String() string {
 	default:
 		return ""
 	}
+}
+
+type Logger struct {
+	out      io.Writer
+	minLevel Level
+	mu       sync.Mutex
 }
