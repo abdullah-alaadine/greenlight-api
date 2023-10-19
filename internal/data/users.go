@@ -4,6 +4,7 @@ import (
 	"errors"
 	"time"
 
+	"github.com/abdullah-alaadine/greenlight-api/internal/validator"
 	"golang.org/x/crypto/bcrypt"
 )
 
@@ -43,4 +44,9 @@ func (p *password) Matches(plaintextPassword string) (bool, error) {
 		}
 	}
 	return true, nil
+}
+
+func ValidateEmail(v *validator.Validator, email string) {
+	v.Check(email != "", "email", "must be provided")
+	v.Check(validator.Matches(email, validator.EmailRX), "email", "must be a valid email address")
 }
