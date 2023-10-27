@@ -208,3 +208,5 @@ func (m UserModel) GetForToken(tokenScope, tokenPlaintext string) (*User, error)
 
 	return &user, nil
 }
+
+var AnonymousUser = &User{}
