@@ -1,5 +1,7 @@
 package data
 
+import "database/sql"
+
 type Permissions []string
 
 func (p Permissions) Include(code string) bool {
@@ -9,4 +11,8 @@ func (p Permissions) Include(code string) bool {
 		}
 	}
 	return false
+}
+
+type PermissionModel struct {
+	DB *sql.DB
 }
