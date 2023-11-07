@@ -1,5 +1,8 @@
-# Include variables from the .envrc file
 include .envrc
+
+# ==================================================================================== #
+# HELPERS
+# ==================================================================================== #
 
 ## help: print this help message
 .PHONY: help
@@ -10,6 +13,10 @@ help:
 .PHONY: confirm
 confirm:
 	@echo -n 'Are you sure? [y/N] ' && read ans && [ $${ans:-N} = y ]
+
+# ==================================================================================== #
+# DEVELOPMENT
+# ==================================================================================== #
 
 ## run/api: run the cmd/api application
 .PHONY: run/api
