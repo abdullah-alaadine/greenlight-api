@@ -12,9 +12,9 @@ import (
 	"sync"
 	"time"
 
-	"github.com/abdullah-alaadine/greenlight-api/internal/data"
-	"github.com/abdullah-alaadine/greenlight-api/internal/jsonlog"
-	"github.com/abdullah-alaadine/greenlight-api/internal/mailer"
+	"github.com/knbr13/greenlight-api/internal/data"
+	"github.com/knbr13/greenlight-api/internal/jsonlog"
+	"github.com/knbr13/greenlight-api/internal/mailer"
 	_ "github.com/lib/pq"
 )
 
@@ -73,7 +73,7 @@ func main() {
 	flag.IntVar(&cfg.smtp.port, "smtp-port", 25, "SMTP port")
 	flag.StringVar(&cfg.smtp.username, "smtp-username", "0abf276416b183", "SMTP username")
 	flag.StringVar(&cfg.smtp.password, "smtp-password", "d8672aa2264bb5", "SMTP password")
-	flag.StringVar(&cfg.smtp.sender, "smtp-sender", "Greenlight <no-reply@abdullah-alaadine.net>", "SMTP sender")
+	flag.StringVar(&cfg.smtp.sender, "smtp-sender", "Greenlight <no-reply@knbr13.net>", "SMTP sender")
 	flag.Func("cors-trusted-origins", "Trusted CORS origins (space separated)", func(val string) error {
 		cfg.cors.trustedOrigins = strings.Fields(val)
 		return nil

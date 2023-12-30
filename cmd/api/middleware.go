@@ -9,8 +9,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/abdullah-alaadine/greenlight-api/internal/data"
-	"github.com/abdullah-alaadine/greenlight-api/internal/validator"
+	"github.com/knbr13/greenlight-api/internal/data"
+	"github.com/knbr13/greenlight-api/internal/validator"
 	"github.com/tomasen/realip"
 	"golang.org/x/time/rate"
 )

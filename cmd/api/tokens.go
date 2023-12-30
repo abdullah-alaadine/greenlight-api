@@ -5,8 +5,8 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/abdullah-alaadine/greenlight-api/internal/data"
-	"github.com/abdullah-alaadine/greenlight-api/internal/validator"
+	"github.com/knbr13/greenlight-api/internal/data"
+	"github.com/knbr13/greenlight-api/internal/validator"
 )
 
 func (app *application) createAuthenticationTokenHandler(w http.ResponseWriter, r *http.Request) {

@@ -1,4 +1,4 @@
-module github.com/abdullah-alaadine/greenlight-api
+module github.com/knbr13/greenlight-api
 
 go 1.21.1
 
